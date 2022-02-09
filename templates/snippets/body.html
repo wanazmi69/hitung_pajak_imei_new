@@ -57,7 +57,7 @@
               <!-- kolom pilihan -->
               <div class="flex-none pl-6 ">
                 <select
-                  class=" rounded-2xl font-bold font-center duration-150 text-white bg-blue-400 hover:bg-blue-500 transition py-4 w-16 appearance-none outline-none cursor-pointer text-center hover:shadow-lg"
+                  class=" rounded-2xl font-bold center duration-150 text-white bg-blue-400 hover:bg-blue-500 transition py-4 w-16 appearance-none outline-none cursor-pointer text-center hover:shadow-lg"
                   name="mata_uang"
                   id="uang"
                 >
@@ -67,16 +67,6 @@
                 <option value="SGD_USD" {% if matauang == "SGD_USD"  %} selected {% endif %} >SD</option>
                 <option value="USD_USD" {% if matauang == "USD_USD"  %} selected {% endif %} >USD</option>
                 <option value="KRW_USD" {% if matauang == "KRW_USD"  %} selected {% endif %} >WON</option>
-                  <!-- <option value="JPY_USD" selected>JPY</option>
-                  {% if matauang == "SGD_USD" %}
-                  <option value="SGD_USD" selected>SD</option>
-                  {% else %}
-                  <option value="SGD_USD">SD</option>
-                  {% endif %} {% if matauang == "IDR_USD" %}
-                  <option value="IDR_USD" selected>IDR</option>
-                  {% else %}
-                  <option value="IDR_USD">IDR</option>
-                  {% endif %} -->
                 </select>
               </div>
             </div>

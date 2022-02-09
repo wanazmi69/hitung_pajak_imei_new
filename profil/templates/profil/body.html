@@ -1,0 +1,57 @@
+{% load static %}
+
+<!-- <a href="https://icons8.com/icon/TEYr8ETaIfBJ/インスタグラム"></a> -->
+
+<!-- component -->
+<div class="h-screen w-full bg-gray-50 flex justify-center items-center pb-36">
+  <div class="h-56 w-72 absolute flex justify-center items-center">
+    <img
+      class="object-cover h-20 w-20 rounded-full"
+      src="{% static fProfile %}"
+      alt=""
+    />
+  </div>
+
+  <div
+    class="h-56 mx-4 w-5/6 bg-blue-400 rounded-3xl shadow-md sm:w-80 sm:mx-0"
+  >
+    <div class="h-1/2 w-full flex justify-between items-baseline px-3 py-5">
+      <h1 class="text-white"></h1>
+    </div>
+
+    <div
+      class="bg-white h-64 w-full rounded-3xl flex flex-col justify-around items-center shadow-lg shadow-indigo-500/40"
+    >
+      <div
+        class="w-full h-1/2 flex justify-between items-center px-3 pt-1"
+      ></div>
+      <div class="w-full h-1/2 flex flex-col justify-center items-center pb-4">
+        <h1 class="text-gray-700 font-bold">{{nama}}</h1>
+        <h1 class="text-gray-500 text-sm">{{negara}}</h1>
+        <h1 class="text-gray-500 text-sm">{{tinggal}}</h1>
+        <img src="https://img.icons8.com/material/24/000000/wavy-line.png" />
+
+        <!-- <h1 class="text-gray-500 text-sm">{{garis}}</h1> -->
+        <img src="" alt="" />
+      </div>
+      <div
+        class="w-full h-1/2 flex flex-row justify-center py-3 px-12 rounded-full"
+      >
+        <div class="px-3">
+          <a href="http://www.instagram.com/wanazmi69">
+            <img
+              src="https://img.icons8.com/bubbles/50/000000/instagram-new--v2.png"
+            />
+          </a>
+        </div>
+        <div class="px-3">
+          <a href="https://www.youtube.com/wanazmi">
+            <img
+              src="https://img.icons8.com/bubbles/50/000000/youtube-squared.png"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
