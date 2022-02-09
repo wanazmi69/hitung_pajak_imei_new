@@ -1,0 +1,131 @@
+<link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+/>
+
+<!-- bg-gradient-to-tl from-cyan-400 to-blue-400 -->
+<div
+  class="min-h-screen flex flex-col items-center justify-center pt-16 bg-stone-50"
+>
+  
+  <div
+    class="flex flex-col bg-zinc-50 shadow-xl  px-4 sm:px-6 md:px-8 lg:px-10 py-62 rounded-3xl w-50 max-w-md"
+  >
+    <div class="font-medium self-center text-xl sm:text-3xl text-gray-800 pt-4 mt-4">
+      Ngitung Pajak HP
+    </div>
+    <div class="mt-4 self-center text-xl sm:text-sm text-gray-800 " >
+      Cara Cepat menghitung pajak IMEI
+    </div>
+    <!--  -->
+    <div class="mt-10">
+      <div class="flex flex-col mb-5">
+        <labels class="mb-3 text-xs tracking-wide text-gray-600">
+          Pajak HPmu
+        </labels>
+        <div class="relative">
+          <div
+            class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400"
+          >
+            <i class="fas fa-coins text-blue-400"></i>
+          </div>
+
+          <div
+            class="text-sm pl-10 pr-4 rounded-2xl border border-blue-400 w-full py-16 focus:outline-none focus:border-blue-400 bg-stone-50"
+          />
+          {{iniHasilnya}}
+        </div>
+      </div>
+      <form action="/" method="POST">
+        {% csrf_token %}
+        <div class="flex flex-col mb-5 mt-6">
+          <span class="mr-2 uppercase"
+            >{{npwp}}
+            <input type="checkbox" name="ya" />
+          </span>
+
+          <label
+            for="harga"
+            class="mb-3 text-xs sm:text-sm tracking-wide text-gray-600 pt-4"
+          >
+            Masukan Harga HPmu
+          </label>
+          <div class="relative">
+            <div
+              class=" inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400"
+            >
+              <!-- kolom pilihan -->
+              <div class="flex-none pl-6 ">
+                <select
+                  class=" rounded-2xl font-bold font-center duration-150 text-white bg-blue-400 hover:bg-blue-500 transition py-4 w-16 appearance-none outline-none cursor-pointer text-center hover:shadow-lg"
+                  name="mata_uang"
+                  id="uang"
+                >
+                <option value="IDR_USD" {% if matauang == "IDR_USD"  %} selected {% endif %} >IDR</option>
+                <option value="JPY_USD" {% if matauang == "JPY_USD"  %} selected {% endif %} >JPY</option>
+                <option value="MYR_USD" {% if matauang == "MYR_USD"  %} selected {% endif %} >RM</option>
+                <option value="SGD_USD" {% if matauang == "SGD_USD"  %} selected {% endif %} >SD</option>
+                <option value="USD_USD" {% if matauang == "USD_USD"  %} selected {% endif %} >USD</option>
+                <option value="KRW_USD" {% if matauang == "KRW_USD"  %} selected {% endif %} >WON</option>
+                  <!-- <option value="JPY_USD" selected>JPY</option>
+                  {% if matauang == "SGD_USD" %}
+                  <option value="SGD_USD" selected>SD</option>
+                  {% else %}
+                  <option value="SGD_USD">SD</option>
+                  {% endif %} {% if matauang == "IDR_USD" %}
+                  <option value="IDR_USD" selected>IDR</option>
+                  {% else %}
+                  <option value="IDR_USD">IDR</option>
+                  {% endif %} -->
+                </select>
+              </div>
+            </div>
+            <!-- akhir kolom pilihan -->
+
+            <!-- kolom input -->
+            <div class="pl-20 appearance-none">
+              <input
+                required
+                id="harga"
+                type="number"
+                name="masukanHarga"
+                class="appearance text-sm placeholder-gray-500 pl-4 pr-4 rounded-2xl border border-gray-400 w-full py-4 focus:outline-none focus:border-blue-400"
+                placeholder="jangan pakai titik/koma"
+              />
+            </div>
+            <!-- akhir kolom input -->
+          </div>
+        </div>
+
+        <!-- tombol kirim -->
+        <div class="flex w-full pb-4">
+          <button
+            type="submit"
+            class="flex mt-2 items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-blue-500 hover:bg-blue-600 rounded-2xl py-2 w-full transition duration-150 ease-in"
+          >
+            <span class="mr-2 uppercase">{{hasil}}</span>
+            <span>
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+        <!-- akhir tombol kirim -->
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous" -->
