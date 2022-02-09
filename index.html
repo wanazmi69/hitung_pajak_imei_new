@@ -4,9 +4,62 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>heroku</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
   </head>
-  <body>
-    <h1>hai django in heroku</h1>
+  <body class="bg-gray-900">
+    <div class="w-full h-screen p-8 flex flex-row justify-center">
+      <div class="self-center bg-blue-900 p-20 shadow-md rounded-md">
+        <!-- Hasil -->
+        <div
+          class="w-80 h-28 bg-blue-200 hover:shadow-lg hover:bg-blue-100 transition duration-150 mb-8 px-4 py-4 flex flex-row justify-center shadow-sm rounded-sm"
+        >
+          <div class="self-center text-3xl font-medium">
+            <span>Rp</span>
+
+            <span>1.000.000</span>
+          </div>
+        </div>
+        <!-- End Hasil -->
+
+        <!-- Input  -->
+        <div class="w-80 h-30 shadow-sm rounded-sm flex">
+          <!-- Mata Uang -->
+          <div class="flex-none">
+            <select
+              class="font-bold pl-3 duration-150 text-white bg-blue-400 hover:bg-blue-500 transition h-12 w-14 appearance-none outline-none cursor-pointer text-center hover:shadow-lg"
+              name=""
+              id=""
+            >
+              <option value="USD">USD</option>
+              <option value="JPY">JPY</option>
+              <option value="IDR">IDR</option>
+            </select>
+          </div>
+          <!-- End Mata uang -->
+
+          <!-- Nilai Awal -->
+          <div class="flex-auto">
+            <input
+              class="h-12 w-full outline-none bg-blue-200 hover:bg-white transition duration-150 pl-4 hover:shadow-lg"
+              type="text"
+              placeholder="Nilai Awal"
+            />
+          </div>
+          <!-- nilai awal -->
+
+          <!-- sama dengan -->
+          <div class="flex-none">
+            <button
+              class="bg-blue-400 h-12 w-14 text-2xl font-bold text-white hover:bg-blue-500 trantition duration-150 hover:shadow-lg"
+            >
+              =
+            </button>
+          </div>
+          <!-- end sama dengan -->
+        </div>
+        <!-- End Input -->
+      </div>
+    </div>
   </body>
 </html>
