@@ -1,4 +1,2 @@
-init
-malinfo
 *.pyc
 db.sqlite3
