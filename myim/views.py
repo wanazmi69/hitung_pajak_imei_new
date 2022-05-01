@@ -11,9 +11,9 @@ class pajak():
             mataUang = request.POST['mata_uang']
             hargaBarang = float(request.POST['masukanHarga'])
             linkAPI = request.get(
-                f'https://free.currconv.com/api/v7/convert?q={mataUang}&compact=ultra&apiKey=19aef0683e341bac700b')
+                f'https://free.currconv.com/api/v7/convert?q={mataUang}&compact=ultra&apiKey=pr_7bdf253de83245a084c054ac812a2cef')
             linkAPI_RP = request.get(
-                'https://free.currconv.com/api/v7/convert?q=USD_IDR&compact=ultra&apiKey=19aef0683e341bac700b')
+                'https://free.currconv.com/api/v7/convert?q=USD_IDR&compact=ultra&apiKey=pr_7bdf253de83245a084c054ac812a2cef')
 
             ambilMataUang = linkAPI.json()
             nilaiMataUang = float(ambilMataUang[mataUang])
