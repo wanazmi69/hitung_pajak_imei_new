@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-import requests
+# import requests
 
 
 class pajak():
@@ -10,9 +10,9 @@ class pajak():
         if request.method == ('POST'):
             mataUang = request.POST['mata_uang']
             hargaBarang = float(request.POST['masukanHarga'])
-            linkAPI = requests.get(
+            linkAPI = request.get(
                 f'https://free.currconv.com/api/v7/convert?q={mataUang}&compact=ultra&apiKey=19aef0683e341bac700b')
-            linkAPI_RP = requests.get(
+            linkAPI_RP = request.get(
                 'https://free.currconv.com/api/v7/convert?q=USD_IDR&compact=ultra&apiKey=19aef0683e341bac700b')
 
             ambilMataUang = linkAPI.json()
