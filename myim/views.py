@@ -41,7 +41,7 @@ class pajak():
 
                 total = beaMasuk + PPN + PPh
 
-                hasil = 'Rp. {:,.2f}'.format(total)
+                hasil = 'Rp. {:0,.0f}'.format(total)
 
             else:
                 kepabenan = 0
