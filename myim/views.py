@@ -1,69 +1,75 @@
 from django.shortcuts import render
 
 import requests
+import json
 
 
-class pajak():
 
-    def index(request):
+def index(request):
 
-        if request.method == ('POST'):
-            mataUang = request.POST['mata_uang']
-            hargaBarang = float(request.POST['masukanHarga'])
-            linkAPI = requests.get(
-                f'https://free.currconv.com/api/v7/convert?q={mataUang}&compact=ultra&apiKey=pr_ffe9b14be34c4dcbb196421620ca6694')
-            linkAPI_RP = requests.get(
-                'https://free.currconv.com/api/v7/convert?q=USD_IDR&compact=ultra&apiKey=pr_ffe9b14be34c4dcbb196421620ca6694')
 
-            ambilMataUang = linkAPI.json()
-            nilaiMataUang = float(ambilMataUang[mataUang])
-            hitungAPI = linkAPI_RP.json()
 
-            kursRP = float(hitungAPI['USD_IDR'])
+    if request.method == ('POST'):
+        # mataUang = request.POST['mata_uang']
+        # hargaBarang = float(request.POST['masukanHarga'])
+        mataUang = request.POST.get('mata_uang')
+        hargaBarang = request.POST.get('masukanHarga')
+        url_convert = f'https://api.apilayer.com/exchangerates_data/convert?to=USD&from={mataUang}&amount=5'
+        url_base = 'https://api.apilayer.com/exchangerates_data/convert?to=IDR&from=USD&amount=5'
+        payload = {}
+        header = {
+            "apikey": "QEq5U0gxSpmDorxvUz9kPOH8pF3GVJnG"
+        }
+        linkAPI = requests.request('GET', url_convert, headers= header, data = payload)
+        linkAPI_RP = requests.request('GET', url_base, headers= header, data = payload)
 
-            hasil_USD = hargaBarang * nilaiMataUang
+        convertRP = linkAPI_RP.json()
+        convertBase = linkAPI.json()
+        nilaiMataUang = float(convertBase["info"]["rate"])
+        kursRP = float(convertRP["info"]["rate"])
 
-            if hasil_USD > 500:
-                kepabenan = hasil_USD - 500
-                pabean = kepabenan * kursRP  # konveri ke Rupiah
+        hasil_USD = float(hargaBarang) * nilaiMataUang
 
-                beaMasuk = pabean * 10/100
+        if hasil_USD > 500:
+            kepabenan = hasil_USD - 500
+            pabean = kepabenan * kursRP  # konveri ke Rupiah
 
-                nilaiImpor = pabean + beaMasuk
+            beaMasuk = pabean * 10/100
 
-                PPN = nilaiImpor * 10/100
+            nilaiImpor = pabean + beaMasuk
 
-                # di sini masukan loop tombol npwp
-                if request.POST.getlist('ya'):
-                    PPh = nilaiImpor * 10/100
-                else:
-                    PPh = nilaiImpor * 20/100
+            PPN = nilaiImpor * 10/100
 
-                total = beaMasuk + PPN + PPh
-
-                hasil = 'Rp. {:0,.0f}'.format(total)
-
+            # di sini masukan loop tombol npwp
+            if request.POST.getlist('ya'):
+                PPh = nilaiImpor * 10/100
             else:
-                kepabenan = 0
-                hasil = "HPmu Bebas Pajak"
+                PPh = nilaiImpor * 20/100
+
+            total = beaMasuk + PPN + PPh
+
+            hasil = 'Rp. {:0,.0f}'.format(total)
 
         else:
-            mataUang = ""
-            hasil = ""
-            baca = ""
+            kepabenan = 0
+            hasil = "HPmu Bebas Pajak"
 
-        context = {
-            'iniHasilnya': hasil,
-            'matauang': mataUang,
-            'title': 'Kalkulator',
-            'judul': 'IMEI',
-            'npwp': 'Memiliki NPWP ',
-            'subjudul': 'Kalkulator Hitung Pajak HP',
-            'hasil': 'Pajak HPmu',
-        }
+    else:
+        mataUang = ""
+        hasil = ""
+        baca = ""
 
-        return render(request, 'index.html', context)
+    context = {
+        'iniHasilnya': hasil,
+        'matauang': mataUang,
+        'title': 'Kalkulator',
+        'judul': 'IMEI',
+        'npwp': 'Memiliki NPWP ',
+        'subjudul': 'Kalkulator Hitung Pajak HP',
+        'hasil': 'Pajak HPmu',
+    }
+
+    return render(request, 'index.html', context)
 
 
-ini = pajak
-ini.index
+

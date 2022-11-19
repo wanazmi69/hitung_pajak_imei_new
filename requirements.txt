@@ -13,3 +13,4 @@ requests==2.27.1
 sqlparse==0.4.2
 urllib3==1.26.8
 whitenoise==5.3.0
+django-tailwind @ git+https://github.com/timonweb/django-tailwind.git@37b81f631edddac04844413bb5635a1c73e5af30
