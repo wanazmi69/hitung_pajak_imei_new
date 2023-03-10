@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tailwind',
     'theme',
-     'django_browser_reload',
+    #  'django_browser_reload',
     'profil',
 ]
 
@@ -52,7 +52,7 @@ MIDDLEWARE = [
 
     'whitenoise.middleware.WhiteNoiseMiddleware',
 
-     "django_browser_reload.middleware.BrowserReloadMiddleware",
+    #  "django_browser_reload.middleware.BrowserReloadMiddleware",
 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
