@@ -29,7 +29,7 @@ DEBUG = True
 # ]
 
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
+ALLOWED_HOSTS = ['*']
 
 
 
@@ -129,7 +129,7 @@ USE_TZ = True
 # STATICFILES_ROOT = [
 #     BASE_DIR, 'staticfiles'
 # ]
-# STATIC_URL = 'static/'
+STATIC_URL = 'static/'
 # STATIC_ROOT = BASE_DIR / "staticfiles_build" / "static"
 # STATICFILES_DIR = [
 #     BASE_DIR, 'static'
