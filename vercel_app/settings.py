@@ -128,6 +128,7 @@ USE_TZ = True
 #     BASE_DIR, 'staticfiles'
 # ]
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / "staticfiles_build" / "static"
 STATICFILES_DIR = [
     BASE_DIR, 'static'
 ]
