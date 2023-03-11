@@ -19,10 +19,11 @@ INTERNAL_IPS = [
     '.now.sh'
     'scale.web.id',
     'www.scale.web.id',
+    'kalkulator-imei.scale.web.id'
 ]
 
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh', 'scale.web.id','www.scale.web.id']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh', 'scale.web.id','www.scale.web.id','kalkulator-imei.scale.web.id']
 
 
 
