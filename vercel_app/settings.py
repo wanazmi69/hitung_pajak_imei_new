@@ -23,7 +23,7 @@ INTERNAL_IPS = [
     '.pajak-imei-project.scale.web.id'
 ]
 
-# halooo makancxzc
+# halooo baru saya ubah
 ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '.scale.web.id','www.scale.web.id','kalkulator-imei.scale.web.id', '.pajak-imei-project.scale.web.id']
 
 
