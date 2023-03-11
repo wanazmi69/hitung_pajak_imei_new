@@ -17,10 +17,11 @@ INTERNAL_IPS = [
     "127.0.0.1",
     '.vercel.app',
     '.now.sh'
+    'scale.web.id'
 ]
 
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh', 'scale.web.id']
 
 
 
