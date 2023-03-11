@@ -17,13 +17,14 @@ INTERNAL_IPS = [
     "127.0.0.1",
     '.vercel.app',
     '.now.sh'
-    'scale.web.id',
+    '.scale.web.id',
     'www.scale.web.id',
     'kalkulator-imei.scale.web.id'
+    '.pajak-imei-project.scale.web.id'
 ]
 
 # halooo makancxzc
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh', 'scale.web.id','www.scale.web.id','kalkulator-imei.scale.web.id']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '.scale.web.id','www.scale.web.id','kalkulator-imei.scale.web.id', '.pajak-imei-project.scale.web.id']
 
 
 
