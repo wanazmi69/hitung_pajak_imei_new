@@ -2,3 +2,4 @@ Django==4.0.2
 django-tailwind @ git+https://github.com/timonweb/django-tailwind.git@37b81f631edddac04844413bb5635a1c73e5af30
 whitenoise==6.4.0
 gunicorn==20.1.0
+requests==2.27.1
