@@ -17,7 +17,6 @@ def index(request):
     # response_url_convert_to_rp = requests.get(url_rp)
     # convertRP = response_url_convert_to_rp.json()
     # print(convertRP['kurs'])
-
     if request.method == ('POST'):
         mataUang = request.POST.get('mata_uang')
         hargaBarang = request.POST.get('masukanHarga')
@@ -25,10 +24,10 @@ def index(request):
 
         # url_rp = 'https://kurs.getundangan-pernikahan.space/api/kurs?amount=1&from=usd&to=idr'
 
-        url_rp = 'https://kurs-scraping.vercel.app/api/kurs?amount=1&to=idr&from=usd'
+        url_rp = 'https://kurs.onrender.com/api/kurs?amount=1&to=idr&from=usd'
 
       
-        url_convert = f'https://kurs-scraping.vercel.app/api/kurs?amount=1&to=usd&from={mataUang}'
+        url_convert = f'https://kurs.onrender.com/api/kurs?amount=1&to=usd&from={mataUang}'
         response_url_convert_to_rp = requests.get(url_rp)
         response_url_base = requests.get(url_convert)
 
@@ -61,20 +60,22 @@ def index(request):
             total = beaMasuk + PPN + PPh
 
             hasil = 'Rp. {:0,.0f}'.format(total)
+            replaceHasil = hasil.replace(',', '.')
+            print(replaceHasil)
             # hasil = 'Rp. ', total
       
 
         else:
             kepabenan = 0
-            hasil = "HPmu Bebas Pajak"
+            replaceHasil = "HPmu Bebas Pajak"
 
     else:
         mataUang = ""
-        hasil = ""
+        replaceHasil = ""
         baca = ""
 
     context = {
-        'iniHasilnya': hasil,
+        'iniHasilnya': replaceHasil,
         'matauang': mataUang,
         'title': 'Kalkulator',
         'judul': 'IMEI',

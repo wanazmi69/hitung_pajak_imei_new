@@ -12,16 +12,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-rrzy7j1n*+p3@jyjyu3^s_h39y=4g#7*ia!gor&*onyrg&3^t4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-INTERNAL_IPS = [
-    "127.0.0.1",
-    '.vercel.app',
-    '.now.sh'
-    'scale.web.id'
-]
+DEBUG = False
+# INTERNAL_IPS = ['*']
 
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh', 'scale.web.id']
+ALLOWED_HOSTS = ['*']
 
 
 
@@ -44,7 +39,7 @@ TAILWIND_APP_NAME = 'theme'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
 
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 
     #  "django_browser_reload.middleware.BrowserReloadMiddleware",
 
@@ -114,20 +109,12 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.0/howto/static-files/
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-# STATICFILES_ROOT = [
-#     BASE_DIR, 'staticfiles'
-# ]
 STATIC_URL = 'static/'
-# STATIC_ROOT = BASE_DIR / "staticfiles_build" / "static"
-# STATICFILES_DIR = [
-#     BASE_DIR, 'static'
-# ]
-STATICFILES_DIRS = os.path.join(BASE_DIR,'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+
+if DEBUG:
+    STATICFILES_DIRS = os.path.join(BASE_DIR, 'theme/static')
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'theme/static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
