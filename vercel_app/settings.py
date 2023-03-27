@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-rrzy7j1n*+p3@jyjyu3^s_h39y=4g#7*ia!gor&*onyrg&3^t4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 INTERNAL_IPS = [
     "127.0.0.1",
     '.vercel.app',
@@ -22,10 +22,10 @@ INTERNAL_IPS = [
     'kalkulator-imei.scale.web.id'
     '.pajak-imei-project.scale.web.id'
 ]
-
-# haloooeeeeeeeeeeeeee
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '.scale.web.id','www.scale.web.id','kalkulator-imei.scale.web.id', '.pajak-imei-project.scale.web.id']
-
+if DEBUG:
+    ALLOWED_HOSTS = ['*']
+else:
+    ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '.scale.web.id','www.scale.web.id','kalkulator-imei.scale.web.id', '.pajak-imei-project.scale.web.id']
 
 
 # Application definition
@@ -129,8 +129,10 @@ STATIC_URL = 'static/'
 # STATICFILES_DIR = [
 #     BASE_DIR, 'static'
 # ]
-STATICFILES_DIRS = os.path.join(BASE_DIR,'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+if DEBUG:
+    STATICFILES_DIRS = os.path.join(BASE_DIR,'static'),
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

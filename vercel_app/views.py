@@ -61,20 +61,20 @@ def index(request):
             total = beaMasuk + PPN + PPh
 
             hasil = 'Rp. {:0,.0f}'.format(total)
-            # hasil = 'Rp. ', total
+            replaceHasil = hasil.replace(',', '.')
       
 
         else:
             kepabenan = 0
-            hasil = "HPmu Bebas Pajak"
+            replaceHasil = "HPmu Bebas Pajak"
 
     else:
         mataUang = ""
-        hasil = ""
+        replaceHasil = ""
         baca = ""
 
     context = {
-        'iniHasilnya': hasil,
+        'iniHasilnya': replaceHasil,
         'matauang': mataUang,
         'title': 'Kalkulator',
         'judul': 'IMEI',
